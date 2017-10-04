@@ -1,10 +1,14 @@
 import React from "react";
+import Header from "./Header";
+import Footer from "./Footer"
+import MessageInput from "./MessageInput";
 
 function App(props){
   return (
     <div>
-      <h3>Get to Coding!</h3>
-      <p><em>Template provided by The Dylan Lewis</em></p>
+      <Header/>
+      <MessageInput/>
+      <Footer/>
     </div>
   );
 }
