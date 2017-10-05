@@ -9,11 +9,11 @@ const apiMessage = (state = [], action) => {
       message: "",
       id: action.id
     }
-    newState = state.splice();
+    newState = state.slice();
     newState.push(newApiMessage)
     return newState;
     case types.RECEIVE_MESSAGE:
-    var newState = state.splice();
+    var newState = state.slice();
     var apiMessage = {
       message: action.message,
       id: action.id

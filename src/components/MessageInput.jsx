@@ -22,17 +22,25 @@ class MessageInput extends React.Component {
       id: v4()
     }
     this.props.dispatch(action)
+    _message.value = "";
   }
   render() {
+
+    var inputStyle = {
+      display: "inline"
+    }
+
     return(
-      <div>
+      <div style={inputStyle}>
         <form onSubmit={this.handleSubmit}>
-        <input
+        <TextInput
           ref="_message"
           placeholder="My Input"
           id="name"
           type="text"
-        /><button type="submit">Send</button>
+          marginRight="350px"
+        />
+      <Button color="blue" type="submit">Send</Button>
     </form>
       </div>
     )

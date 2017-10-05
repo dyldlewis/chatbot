@@ -15,34 +15,62 @@ class MessageBoard extends React.Component {
   render() {
 
     var boardStyle = {
-      border: "solid black 1px",
-      width: "500px",
-      height: "200px"
+      border: "solid lightblue 5px",
+      width: "60%",
+      height: "200px",
+      marginTop: "200px",
+      textAlign: "center",
+      borderRadius: "10",
+      marginRight: "350px"
+    }
+
+    var userMapStyle = {
+      float: "right"
+    }
+
+    var apiMapStyle = {
+      float: "left"
     }
 
     var messageStyle = {
       float: "right",
-      color: "blue",
-      border: "solid grey 1px"
+      color: "white",
+      border: "solid blue 1px",
+      borderRadius: "10",
+      padding: "3px",
+      backgroundColor: "blue",
+      marginRight: "3px",
+      marginTop: "3px",
     }
 
     var apiMessageStyle = {
-      color: "red",
+      color: "white",
       float: "left",
-      border: "solid grey 1px"
+      border: "solid red 1px",
+      borderRadius: "10",
+      padding: "3px",
+      backgroundColor: "red",
+      marginLeft: "3px",
+      marginTop: "3px"
     }
 
     return(
       <div style={boardStyle}>
+        <div>
         {this.props.masterUserMessageList.userMessage.map((userMessage) =>
-          <div style={messageStyle}>
-            <UserMessage
-              userMessage={userMessage}
-              key={userMessage.id}
-              />
+          <div>
+            <div style={messageStyle}>
+              <UserMessage
+                userMessage={userMessage}
+                key={userMessage.id}
+                />
+            </div>
+            <br/>
           </div>
           )}
+        </div>
         <br/>
+        <div>
           {this.props.masterUserMessageList.apiMessage.map((apiMessage) =>
             <div style={apiMessageStyle}>
               <ApiMessage
@@ -51,6 +79,7 @@ class MessageBoard extends React.Component {
                 />
             </div>
             )}
+          </div>
       </div>
     )
   }

@@ -14,7 +14,7 @@ export const recieveMessage = (message) => ({
 
 export function getMessage(message) {
   return function (dispatch) {
-    dispatch(requestMessage());
+    // dispatch(requestMessage());
     return fetch("http://www.cleverbot.com/getreply?key=CC4nk9X4z41fzu0DjzLCTfxQ5qg&input=" + message).then(
       response => response.json(),
       error => console.log("An error occured.", error)
