@@ -11,6 +11,7 @@ const userMessage = (state = [], action) => {
       id: action.id
     }
     newState.push(newMessage);
+    // newState = newState.reverse()
     console.log(newState);
     return newState;
     default:

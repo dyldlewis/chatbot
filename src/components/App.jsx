@@ -4,7 +4,7 @@ import Footer from "./Footer"
 import MessageInput from "./MessageInput";
 import MessageBoard from "./MessageBoard";
 import { Switch, Route } from 'react-router-dom';
-import Login from "./Login"
+import LoginForm from "./LoginForm"
 
 function App(props){
   return (
@@ -12,10 +12,8 @@ function App(props){
       <Header/>
         <Switch>
           <Route exact path="/" component={MessageBoard} />
-          <Route path="/login" component={Login} />
+          <Route path="/login" component={LoginForm} />
         </Switch>
-      <MessageBoard/>
-      <MessageInput/>
       <Footer/>
     </div>
   );

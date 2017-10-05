@@ -40,6 +40,7 @@ class MessageInput extends React.Component {
           type="text"
           marginRight="350px"
         />
+      <br/>
       <Button color="blue" type="submit">Send</Button>
     </form>
       </div>

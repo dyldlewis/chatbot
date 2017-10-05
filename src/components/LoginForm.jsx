@@ -22,30 +22,30 @@ class LoginForm extends React.Component {
 
   }
 
-  onChange = e =>
-    this.setState({
-      data: { ...this.state.data, [e.target.name]: e.target.value }
-    });
+  // onChange = e =>
+  //   this.setState({
+  //     data: { ...this.state.data, [e.target.name]: e.target.value }
+  //   });
 
 
-  onSubmit = () => {
-    const errors = this.validate(this.state.data);
-    console.log(errors);
-    this.setState({ errors });
-    if (Object.keys(errors).length === 0) {
-      this.props
-        .submit(this.state.data)
-        .catch(err => this.setState({ errors: err.response.data.errors }));
-      console.log(this.state);
-    }
-  };
+  // onSubmit = () => {
+  //   const errors = this.validate(this.state.data);
+  //   console.log(errors);
+  //   this.setState({ errors });
+  //   if (Object.keys(errors).length === 0) {
+  //     this.props
+  //       .submit(this.state.data)
+  //       .catch(err => this.setState({ errors: err.response.data.errors }));
+  //     console.log(this.state);
+  //   }
+  // };
 
-  validate = (data) => {
-    const errors = {}
-    if (!Validator.isEmail(data.email)) errors.email = "Invalid Email";
-    if (!data.password) errors.password = "Can't be blank";
-    return errors
-  }
+  // validate = (data) => {
+  //   const errors = {}
+  //   if (!Validator.isEmail(data.email)) errors.email = "Invalid Email";
+  //   if (!data.password) errors.password = "Can't be blank";
+  //   return errors
+  // }
 
   render() {
     const { data, errors } = this.state;
@@ -84,8 +84,8 @@ class LoginForm extends React.Component {
   }
 }
 
-LoginForm.propTypes = {
-  submit: PropTypes.func.isRequired
-}
+// LoginForm.propTypes = {
+//   submit: PropTypes.func.isRequired
+// }
 
 export default LoginForm;
