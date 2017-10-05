@@ -5,11 +5,27 @@ const { types } = constants;
 const apiMessage = (state = [], action) => {
   switch(action.type) {
     case types.REQUEST_MESSAGE:
-    var newState = action.response;
-    return "newState";
+    var newApiMessage = {
+      message: "",
+      id: action.id
+    }
+    newState = state.splice();
+    newState.push(newApiMessage)
+    return newState;
     case types.RECEIVE_MESSAGE:
-    console.log(action.repos)
-    var newState = action.response;
+    var newState = state.splice();
+    var apiMessage = {
+      message: action.message,
+      id: action.id
+    }
+    // for (var i = 0; i < newState.length; i++) {
+    //   if (newState[i].id === apiMessage.id) {
+    //     newState[i].message = apiMessage.message;
+    //   }
+    // }
+    newState.push(apiMessage)
+
+    console.log(newState)
     return newState
     default:
       return state;

@@ -15,11 +15,10 @@ class MessageInput extends React.Component {
   handleSubmit(){
     event.preventDefault();
     const { _message } = this.refs;
-    console.log(_message);
-    this.props.dispatch(getMessage(_message))
+    this.props.dispatch(getMessage(_message.value))
     var action = {
       type: types.ADD_MESSAGE,
-      message: _message,
+      message: _message.value,
       id: v4()
     }
     this.props.dispatch(action)

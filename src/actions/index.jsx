@@ -3,7 +3,8 @@ import v4 from "uuid/v4";
 
 export const requestMessage = () => ({
   type: types.REQUEST_MESSAGE,
-  message: {}
+  message: "",
+  id: v4()
 });
 
 export const recieveMessage = (message) => ({
@@ -11,14 +12,15 @@ export const recieveMessage = (message) => ({
   message
 })
 
-export function getMessage() {
+export function getMessage(message) {
   return function (dispatch) {
     dispatch(requestMessage());
-    return fetch("http://www.cleverbot.com/getreply?key=CC4nk9X4z41fzu0DjzLCTfxQ5qg&input=hi").then(
+    return fetch("http://www.cleverbot.com/getreply?key=CC4nk9X4z41fzu0DjzLCTfxQ5qg&input=" + message).then(
       response => response.json(),
       error => console.log("An error occured.", error)
     ).then(function(json) {
-      console.log(json)
+      var message = json.clever_output;
+      dispatch(recieveMessage(message))
     });
   };
 }

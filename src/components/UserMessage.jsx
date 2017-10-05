@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function UserMessage(props) {
   return(
     <div>
-      {userMessage.message}
+      {props.userMessage.message}
     </div>
   )
 }
@@ -14,3 +14,5 @@ function UserMessage(props) {
 UserMessage.propTypes = {
   userMessage: PropTypes.object
 }
+
+export default UserMessage;
