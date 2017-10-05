@@ -2,6 +2,8 @@ import React from "react";
 import { Button, TextInput } from 'react-desktop/macOs';
 import { getMessage } from "./../actions";
 import { connect } from "react-redux";
+import * as types from "./../constants/ActionTypes";
+import v4 from "uuid/v4";
 
 class MessageInput extends React.Component {
   constructor(props) {
@@ -13,7 +15,14 @@ class MessageInput extends React.Component {
   handleSubmit(){
     event.preventDefault();
     const { _message } = this.refs;
+    console.log(_message);
     this.props.dispatch(getMessage(_message))
+    var action = {
+      type: types.ADD_MESSAGE,
+      message: _message,
+      id: v4()
+    }
+    this.props.dispatch(action)
   }
   render() {
     return(

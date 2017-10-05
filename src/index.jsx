@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { HashRouter } from "react-router-dom"
 import { AppContainer } from "react-hot-loader";
-import reducer from "./reducers/message";
+import reducer from "./reducers";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 
@@ -13,6 +13,7 @@ import { createLogger } from "redux-logger";
 
 const loggerMiddleware = createLogger();
 
+
 const store = createStore(
   reducer,
   applyMiddleware(
@@ -20,6 +21,8 @@ const store = createStore(
     loggerMiddleware
   )
 );
+
+console.log(store);
 
 ReactDOM.render(
   <Provider store={store}>
