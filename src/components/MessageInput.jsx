@@ -19,7 +19,8 @@ class MessageInput extends React.Component {
     var action = {
       type: types.ADD_MESSAGE,
       message: _message.value,
-      id: v4()
+      id: v4(),
+      sender: "user"
     }
     this.props.dispatch(action)
     _message.value = "";

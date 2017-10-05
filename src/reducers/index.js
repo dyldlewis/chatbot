@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import apiMessage from "./apiMessage";
+// import apiMessage from "./apiMessage";
 import userMessage from "./userMessage";
 
 const rootReducer = combineReducers({
-  apiMessage,
+  // apiMessage,
   userMessage
 });
 

@@ -80,29 +80,48 @@ class MessageBoard extends React.Component {
         <div style={boardStyle}>
           {greeting}
           <div>
-            {this.props.masterUserMessageList.userMessage.map((userMessage) =>
-              <div>
-                <div style={messageStyle}>
-                  <UserMessage
-                    userMessage={userMessage}
-                    key={userMessage.id}
-                    />
-                </div>
-                <br/>
-              </div>
-            )}
+            {this.props.masterUserMessageList.userMessage.map(function(userMessage) {
+              if (userMessage.sender === "user") {
+                var messageStyle = {
+                  color: "white",
+                  float: "right",
+                  border: "solid blue 1px",
+                  borderRadius: "10",
+                  padding: "3px",
+                  backgroundColor: "blue",
+                  marginRight: "3px",
+                  marginTop: "10px",
+                  clear: "right",
+                  marginBottom: "10px",
+                }
+              } else {
+                messageStyle = {
+                  color: "white",
+                  float: "left",
+                  border: "solid silver 1px",
+                  borderRadius: "10",
+                  padding: "3px",
+                  backgroundColor: "silver",
+                  marginLeft: "3px",
+                  marginTop: "10px",
+                  clear: "left",
+                  marginBottom: "10px"
+                }
+              }
+               return (
+                 <div>
+                 <div style={messageStyle}>
+                   <UserMessage
+                     userMessage={userMessage}
+                     key={userMessage.id}
+                     />
+                 </div>
+                 <br/>
+               </div>
+              )
+            })}
           </div>
           <br/>
-          <div>
-            {this.props.masterUserMessageList.apiMessage.map((apiMessage) =>
-              <div style={apiMessageStyle}>
-                <ApiMessage
-                  apiMessage={apiMessage}
-                  key={apiMessage.id}
-                  />
-              </div>
-            )}
-          </div>
         </div>
         <MessageInput/>
       </div>

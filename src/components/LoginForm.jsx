@@ -48,38 +48,31 @@ class LoginForm extends React.Component {
   // }
 
   render() {
-    const { data, errors } = this.state;
-    console.log(errors);
+    var loginStyle = {
+      marginTop: "200px"
+    }
     return (
-      <Form onSubmit={this.onSubmit}>
-      { errors.global && <Message negative>
-      <Message.Header>Something went wrong</Message.Header>
-      <p>{errors.global}</p>
-      </Message>}
-      <Form.Field error={!!errors.email}>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="example@example.com"
-          value={data.email}
-          onChange={this.onChange}/>
-      </Form.Field>
-      {errors.email && <InlineError text={errors.email} />}
-      <Form.Field error={!!errors.password}>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="make it secure"
-          value={data.password}
-          onChange={this.onChange}/>
-        {errors.password && <InlineError text={errors.password} />}
-      </Form.Field>
+      <div style={loginStyle}>
+        <Form.Field>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@example.com"
+            onChange={this.onChange}/>
+        </Form.Field>
+        <Form.Field>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="make it secure"
+            onChange={this.onChange}/>
+        </Form.Field>
         <Button primary>Login</Button>
-      </Form>
+      </div>
     );
   }
 }
